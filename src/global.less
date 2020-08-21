@@ -1,0 +1,40 @@
+// 对antd重新改写样式
+
+@import '~antd/lib/style/themes/default.less';
+// @import '~antd/dist/antd.less'; // 引入官方提供的 less 样式入口文件
+.ant-btn {
+  color: red;
+  &:hover {
+    border-color:  #4FD085;
+    background: #fff;
+    color: #4FD085;
+  }
+  &:active  {
+    border: 1px solid #49CE80;
+    background: #E9F9EF;
+    color: #4FD085;
+  }
+  &:focus {
+    border: 1px solid #4FD085;
+    background: #fff;
+    color: #4FD085;
+  }
+}
+.ant-btn.ant-btn-dangerous {
+  width: 88px;
+  height: 32px;
+  box-sizing: border-box;
+  background-color: #08BD53;
+  color: #EBEBEB;
+  border: 1px solid #08BD53;
+  &:hover {
+    border: 1px solid #46CE7E;
+    background: #46CE7E;
+    color: #FFFFFF;
+  }
+  &:active  {
+    border: 1px solid #07A147;
+    background: #07A147;
+    color: #FFFFFF;
+  }
+}

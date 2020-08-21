@@ -1,5 +1,8 @@
 import dva from 'dva';
 import './index.css';
+import '../node_modules/antd/dist/antd.css'
+
+import './global.less'
 
 // 1. Initialize
 const app = dva();
@@ -15,3 +18,4 @@ app.router(require('./router').default);
 
 // 5. Start
 app.start('#root');
+// roadhog buildDll&&
