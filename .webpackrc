@@ -1,3 +1,7 @@
 {
+  "theme": {
+    "@primary-color": "#08BD53"
+    },
+
   "disableCSSModules": true
 }
