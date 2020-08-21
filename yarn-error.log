@@ -1,0 +1,51 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add tslint-react
+
+PATH: 
+  D:\GIT\Git\mingw64\bin;D:\GIT\Git\usr\bin;C:\Users\admin\bin;C:\Users\admin\bin;D:\GIT\Git\mingw64\bin;D:\GIT\Git\usr\local\bin;D:\GIT\Git\usr\bin;D:\GIT\Git\usr\bin;D:\GIT\Git\mingw64\bin;D:\GIT\Git\usr\bin;C:\Users\admin\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Users\admin\AppData\Roaming\nvm;C:\Program Files\nodejs;D:\GIT\Git\cmd;C:\Program Files (x86)\Yarn\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;D:\flutter\bin;C:\Users\admin\AppData\Local\Microsoft\WindowsApps;C:\Users\admin\AppData\Roaming\nvm;C:\Program Files\nodejs;D:\vscode\Microsoft VS Code\bin;C:\Users\admin\AppData\Local\Yarn\bin;D:\GIT\Git\usr\bin\vendor_perl;D:\GIT\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  12.16.3
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'C:\Users\admin\AppData\Local\Yarn\Cache\v6\npm-caniuse-db-1.0.30001116-77635640080024292f9f239042e7d1acd5cb88a7-integrity\node_modules\caniuse-db\.yarn-tarball.tgz'
+
+npm manifest: 
+  {
+    "private": true,
+    "scripts": {
+      "start": "roadhog server",
+      "build": "roadhog build",
+      "lint": "eslint --ext .js src test",
+      "precommit": "npm run lint"
+    },
+    "dependencies": {
+      "dva": "^2.4.1",
+      "react": "^16.2.0",
+      "react-dom": "^16.2.0"
+    },
+    "devDependencies": {
+      "babel-plugin-dva-hmr": "^0.3.2",
+      "eslint": "^4.14.0",
+      "eslint-config-umi": "^0.1.1",
+      "eslint-plugin-flowtype": "^2.34.1",
+      "eslint-plugin-import": "^2.6.0",
+      "eslint-plugin-jsx-a11y": "^5.1.1",
+      "eslint-plugin-react": "^7.1.0",
+      "husky": "^0.12.0",
+      "redbox-react": "^1.4.3",
+      "roadhog": "^2.5.0-beta.4"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
