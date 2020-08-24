@@ -10,7 +10,9 @@ const BaseMenu = (props) => {
   console.log('props++', props)
   const hrefRoute =(path) => {
     // props.history.push(path)
-    routerRedux.push(path)
+    props.dispatch(routerRedux.push({
+      pathname: path
+    }));
   }
   const renderMenu = (menuData) => {
     return menuData.map(item => {

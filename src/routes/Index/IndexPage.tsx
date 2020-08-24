@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { connect } from 'dva';
-import {  Breadcrumb, Input, Form, Row, Col, Button, Tabs, Table, Tag , Space} from 'antd';
-import { Router, Route, Switch } from 'dva/router';
+import {  Breadcrumb,  Tag , Space} from 'antd';
+import {  Route, Switch } from 'dva/router';
 
-const { Search } = Input;
-const { TabPane } = Tabs;
 
 import styles from './IndexPage.less';
 import BaseMenu from '@/components/BaseMenu'
 import PowerArchives from '../Pages/PowerArchives'
+import FaultDiagno from '../Pages/FaultDiagno'
+import datainfo from './data'
+console.log('datainfo+++', datainfo)
 const menuslist = [
   {
     path: '/',
@@ -105,82 +106,10 @@ const menuslist = [
     name: '光伏结算',
   }
 ]
-const columns = [
-  {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
-    render: text => <a>{text}</a>,
-  },
-  {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
-  },
-  {
-    title: 'Tags',
-    key: 'tags',
-    dataIndex: 'tags',
-    render: tags => (
-      <>
-        {tags.map(tag => {
-          let color = tag.length > 5 ? 'geekblue' : 'green';
-          if (tag === 'loser') {
-            color = 'volcano';
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
-  },
-  {
-    title: 'Action',
-    key: 'action',
-    render: (text, record) => (
-      <Space size="middle">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
-      </Space>
-    ),
-  },
-];
-
-const data = [
-  {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer'],
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
-  },
-];
 
 const IndexPage = (props) => {
   console.log('props++++', props)
-  const callback = () => {}
+  const {location} = props
   const login = () => {
     props.history.push('/login')
   }
@@ -209,14 +138,15 @@ const IndexPage = (props) => {
         <main className={styles.main} >
           <div className={styles.breadcrumb}>
             <Breadcrumb>
-              <Breadcrumb.Item>基础设置</Breadcrumb.Item>
-              <Breadcrumb.Item>电站档案</Breadcrumb.Item>
+              {location.pathname.split('/').map(item => (item && (<Breadcrumb.Item>{datainfo[item]}</Breadcrumb.Item>)))}
             </Breadcrumb>
           </div>
 
           <div>
             <Switch>
               <Route path="/home/PowerArchives"  component={PowerArchives} />
+              <Route path="/home/FaultDiagno"  component={FaultDiagno} />
+
             </Switch>
 
           </div>
