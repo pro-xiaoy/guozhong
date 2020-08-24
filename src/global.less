@@ -1,69 +1,15 @@
 // 对antd重新改写样式
-
-// @import '~antd/lib/style/themes/default.less';
-
-
-.ant-table-thead {
-  .ant-table-cell {
-    background-color: #E8F4FF;  
-  } 
+:global {
+  .ant-table-thead {
+    .ant-table-cell {
+      background-color: #E8F4FF;  
+    } 
+  }
+  .ant-menu-horizontal {
+    border-bottom: none !important;
+  }
+  .ant-menu-vertical.ant-menu-sub, .ant-menu-vertical-left.ant-menu-sub, .ant-menu-vertical-right.ant-menu-sub{
+    max-height: calc(~"100vh - 100px") !important;
+  }
 }
 
-.ant-menu-horizontal {
-  border-bottom: none !important;
-}
-
-
-// .ant-btn {
-//   &:hover {
-//     border-color:  #4FD085;
-//     background: #fff;
-//     color: #4FD085;
-//   }
-//   &:active  {
-//     border: 1px solid #49CE80;
-//     background: #E9F9EF;
-//     color: #4FD085;
-//   }
-//   &:focus {
-//     border: 1px solid #4FD085;
-//     background: #fff;
-//     color: #4FD085;
-//   }
-// }
-// .ant-btn.ant-btn-dangerous {
-//   width: 88px;
-//   height: 32px;
-//   box-sizing: border-box;
-//   background-color: #08BD53;
-//   color: #EBEBEB;
-//   border: 1px solid #08BD53;
-//   &:hover {
-//     border: 1px solid #46CE7E;
-//     background: #46CE7E;
-//     color: #FFFFFF;
-//   }
-//   &:active  {
-//     border: 1px solid #07A147;
-//     background: #07A147;
-//     color: #FFFFFF;
-//   }
-// }
-// .ant-btn.ant-btn-primary {
-//   width: 88px;
-//   height: 32px;
-//   box-sizing: border-box;
-//   background-color: #08BD53;
-//   color: #EBEBEB;
-//   border: 1px solid #08BD53;
-//   &:hover {
-//     border: 1px solid #46CE7E;
-//     background: #46CE7E;
-//     color: #FFFFFF;
-//   }
-//   &:active  {
-//     border: 1px solid #07A147;
-//     background: #07A147;
-//     color: #FFFFFF;
-//   }
-// }

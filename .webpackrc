@@ -1,8 +1,8 @@
 {
   "theme": {
     "@primary-color": "#08BD53"
-    },
-    "extraBabelPlugins": [
-      ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true}]
-    ]
+  },
+  "extraBabelPlugins": [
+    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true}]
+  ]
 }
