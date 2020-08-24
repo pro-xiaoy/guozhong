@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { connect } from 'dva';
-import { Menu, Breadcrumb, Input, Form, Row, Col, Button, Tabs, Table, Tag , Space} from 'antd';
+import {  Breadcrumb, Input, Form, Row, Col, Button, Tabs, Table, Tag , Space} from 'antd';
+import { Router, Route, Switch } from 'dva/router';
+
 const { Search } = Input;
-const { SubMenu } = Menu;
 const { TabPane } = Tabs;
 
 import styles from './IndexPage.less';
 import BaseMenu from '@/components/BaseMenu'
-
+import PowerArchives from '../Pages/PowerArchives'
 const menuslist = [
   {
     path: '/',
@@ -16,11 +17,11 @@ const menuslist = [
     children: [
       {
         name: '集中监控',
-        path: '/',
+        path: '/home/PowerArchives',
       },
       {
         name: '电站列表',
-        path: '/'
+        path: '/home/FaultDiagno'
       }
     ]
   },
@@ -178,9 +179,11 @@ const data = [
 ];
 
 const IndexPage = (props) => {
-  const [current, setcurrent] = useState('mail')
-  const handleClick = (val) => { setcurrent(val) }
+  console.log('props++++', props)
   const callback = () => {}
+  const login = () => {
+    props.history.push('/login')
+  }
   return (
     <>
       <div className={styles.mainbody}>
@@ -188,13 +191,7 @@ const IndexPage = (props) => {
           <div className={styles.header_name}>分布式光伏智慧运维大数据云平台</div>
 
           <div className={styles.menus}>
-            <BaseMenu menuData={menuslist}/>
-            {/* <Menu onClick={handleClick} selectedKeys={['index']} mode="horizontal">
-              {menuslist.map((item, index) => 
-                <SubMenu title={item.name}>
-                  {item.children && item.children.length>0 && item.children.map((item1, index2) => <Menu.Item key={item1.name}>{item1.name}</Menu.Item>)}
-                </SubMenu>)}
-            </Menu> */}
+            <BaseMenu menuData={menuslist} history={history}/>
           </div>
 
           <div className={styles.header_right}>
@@ -204,7 +201,7 @@ const IndexPage = (props) => {
               <p>周二 09.24</p>
             </div>
             <div className={styles.userinfo}>
-              <div className={styles.head_bg}></div>
+              <div className={styles.head_bg} onClick={login}></div>
               <div className={styles.nickname}>XXXX</div>
             </div>
           </div>
@@ -216,90 +213,15 @@ const IndexPage = (props) => {
               <Breadcrumb.Item>电站档案</Breadcrumb.Item>
             </Breadcrumb>
           </div>
-          <div className={styles.search}>
-            <Search
-              placeholder="input search text"
-              enterButton
-              size="large"
-              onSearch={value => console.log(value)}
-            />
-          </div>
-          <div className={styles.condition}>
-            <Row gutter={24}>
-              <Col span={8} >
-                <Form.Item
-                  label="省市县："
-                >
-                  <Input placeholder="placeholder" />
-                </Form.Item>
-              </Col>
-              <Col span={8} >
-                <Form.Item
-                  label="省市县："
-                >
-                  <Input placeholder="placeholder" />
-                </Form.Item>
-              </Col>
-              <Col span={8} >
-                <Form.Item
-                  label="省市县："
-                >
-                  <Input placeholder="placeholder" />
-                </Form.Item>
-              </Col>
 
-            </Row>
-            <Row gutter={24}>
-              <Col span={8} >
-                <Form.Item
-                  label="省市县："
-                >
-                  <Input placeholder="placeholder" />
-                </Form.Item>
-              </Col>
-              <Col span={8} >
-                <Form.Item
-                  label="省市县："
-                >
-                  <Input placeholder="placeholder" />
-                </Form.Item>
-              </Col>
-              <Col span={8} >
-                <Form.Item
-                  label="省市县："
-                >
-                  <Input placeholder="placeholder" />
-                </Form.Item>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={24} style={{ textAlign: 'right' }}>
-                <Button type="primary" htmlType="submit">
-                  Search
-                </Button>
-                <Button
-                  style={{ margin: '0 8px' }}
-                  onClick={() => {
-                  }}
-                >
-                  Clear
-                </Button>
-              </Col>
-            </Row>
+          <div>
+            <Switch>
+              <Route path="/home/PowerArchives"  component={PowerArchives} />
+            </Switch>
+
           </div>
-          <div className={styles.tabs}>
-          <Tabs defaultActiveKey="1" onChange={callback}>
-            <TabPane tab="Tab 1" key="1">
-              <Table columns={columns} dataSource={data} />
-            </TabPane>
-            <TabPane tab="Tab 2" key="2">
-              Content of Tab Pane 2
-            </TabPane>
-            <TabPane tab="Tab 3" key="3">
-              Content of Tab Pane 3
-            </TabPane>
-          </Tabs>
-          </div>
+
+ 
         </main>
 
       </div>
