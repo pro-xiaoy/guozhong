@@ -1,8 +1,7 @@
 import dva from 'dva';
-import './index.css';
-import '../node_modules/antd/dist/antd.css'
-
-import './global.less'
+// import '../node_modules/antd/dist/antd.css'
+// import './global.less'
+// import './index.css';
 
 // 1. Initialize
 const app = dva();
